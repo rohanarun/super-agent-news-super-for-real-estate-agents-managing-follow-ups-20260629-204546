@@ -1,0 +1,235 @@
+/*
+  Super — Niche Landing Page Styles
+  Cabinet Grotesk only. Warm paper system.
+*/
+
+:root {
+  --paper: #f7f5ef;
+  --ink: #0a0a0a;
+  --muted: #68645d;
+  --white: #ffffff;
+  --line: rgba(10, 10, 10, 0.12);
+  --radius-xl: 34px;
+  --radius-lg: 26px;
+  --shadow-soft: 0 28px 80px rgba(24, 22, 18, 0.12);
+  --shadow-hard: 0 26px 80px rgba(0, 0, 0, 0.18);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Cabinet Grotesk', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(10,10,10,0.05), transparent 60%),
+    radial-gradient(900px 500px at 80% 0%, rgba(10,10,10,0.04), transparent 55%),
+    var(--paper);
+}
+
+.page {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.ambient-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(10,10,10,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,10,10,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.paper-noise {
+  position: fixed;
+  inset: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="120" height="120" filter="url(%23n)" opacity="0.04"/></svg>');
+  pointer-events: none;
+  z-index: 1;
+}
+
+.shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(247,245,239,0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+  z-index: 10;
+}
+
+.brand img {
+  width: 34px;
+  height: 34px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.nav-cta {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero {
+  padding: 180px 0 120px;
+  text-align: center;
+}
+
+.hero-inner h1 {
+  max-width: 1120px;
+  margin: 0 auto 24px;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.05;
+  font-weight: 900;
+}
+
+.hero-inner h1 span {
+  display: block;
+}
+
+.hero-sub {
+  max-width: 760px;
+  margin: 0 auto 36px;
+  font-size: 20px;
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.btn {
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+
+.btn-black {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.btn-white {
+  background: var(--white);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hard);
+}
+
+.media-frame {
+  position: relative;
+  margin: 0 auto;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-hard);
+  aspect-ratio: 16 / 9;
+  max-width: 1000px;
+}
+
+.media-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chapter {
+  padding: 140px 0;
+}
+
+.chapter-contrast {
+  background: rgba(10,10,10,0.04);
+}
+
+.chapter h2 {
+  font-size: clamp(36px, 4vw, 52px);
+  margin-bottom: 48px;
+}
+
+.bento {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  margin-bottom: 80px;
+  grid-auto-flow: dense;
+}
+
+.bento-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-soft);
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  grid-auto-flow: dense;
+}
+
+.compare-card {
+  background: var(--white);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.source-card {
+  max-width: 640px;
+  background: var(--white);
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.cta-band {
+  padding: 160px 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero { padding-top: 140px; }
+  .hero-inner h1 { font-size: 40px; }
+}
